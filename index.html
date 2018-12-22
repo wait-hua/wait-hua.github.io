@@ -169,6 +169,87 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-cors" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/02/cors/">JS的跨域理解</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/02/cors/" class="archive-article-date">
+  	<time datetime="2018-01-02T11:16:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是跨域？"><a href="#什么是跨域？" class="headerlink" title="什么是跨域？"></a>什么是跨域？</h2><p>JavaScript处于安全方面的考虑，不允许跨域调用其他页面的对象。也就是说a.com域名下的JS无法操作b.com或者c.a.com域名下的对象。JS跨域就是要解决在不同的域之间的数据传输或通信。只要是协议、域名、端口有任何一个的不同，都被当做是不同的域。</p>
+<h2 id="JSONP跨域"><a href="#JSONP跨域" class="headerlink" title="JSONP跨域"></a>JSONP跨域</h2><p>JsonP跨域是我们最常见的跨域方法，它所基于的原理：直接通过XMLHttpRequest是不能请求不同域的数据，但是我们可以在页面中引入不同域的JS文件。</p>
+<p>假设a.html页面里面要获取 <a href="http://b.com/data.php里面的json数据。那么我们可以在a.html页面中可以这样实现：" target="_blank" rel="noopener">http://b.com/data.php里面的json数据。那么我们可以在a.html页面中可以这样实现：</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">function</span> cb(jsondata)&#123;</span><br><span class="line">        //处理获得的json数据</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"http://b.com/data.php?callback=cb"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2018/01/02/cors/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			 
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color3">跨域</a>
+        </li>
+      
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/02/cors/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+<!-- gitment -->
+<section>
+  <div id="gitcomments" class="m-gitcomments"></div>
+  <script>
+    var gitment = new Gitment({
+      owner: 'wait-hua',
+      repo: 'wait-hua.github.io',
+      oauth: {
+        client_id: 'd0ce7f75f6a405e152f7',
+        client_secret: '66977d7b9e9a42634158269245d0b103ee2c5bff',
+      },
+    });
+    gitment.render('gitcomments');
+  </script>
+</section>
+
+  
     <article id="post-reqwest" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -203,88 +284,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/07/22/reqwest/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-<!-- gitment -->
-<section>
-  <div id="gitcomments" class="m-gitcomments"></div>
-  <script>
-    var gitment = new Gitment({
-      owner: 'wait-hua',
-      repo: 'wait-hua.github.io',
-      oauth: {
-        client_id: 'd0ce7f75f6a405e152f7',
-        client_secret: '66977d7b9e9a42634158269245d0b103ee2c5bff',
-      },
-    });
-    gitment.render('gitcomments');
-  </script>
-</section>
-
-  
-    <article id="post-cors" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/02/cors/">JS的跨域理解</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/02/cors/" class="archive-article-date">
-  	<time datetime="2017-01-02T11:16:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>博客搬家<br>周一的学院点开题被批的很惨，换了个校长，各种被抓严，班上已经有两个同学打算休学了。哎，这周的聚会可能是大家集聚的最后一次吧。熬着吧，还是学习我的前端，不管老板学校咋逼了，找个好工作才是王道。今天把学习的几种跨域方法做个小结吧，不然就很容易忘了。</p>
-<h2 id="什么是跨域？"><a href="#什么是跨域？" class="headerlink" title="什么是跨域？"></a>什么是跨域？</h2><p>JavaScript处于安全方面的考虑，不允许跨域调用其他页面的对象。也就是说a.com域名下的JS无法操作b.com或者c.a.com域名下的对象。JS跨域就是要解决在不同的域之间的数据传输或通信。只要是协议、域名、端口有任何一个的不同，都被当做是不同的域。</p>
-<h2 id="JSONP跨域"><a href="#JSONP跨域" class="headerlink" title="JSONP跨域"></a>JSONP跨域</h2><p>JsonP跨域是我们最常见的跨域方法，它所基于的原理：直接通过XMLHttpRequest是不能请求不同域的数据，但是我们可以在页面中引入不同域的JS文件。</p>
-<p>假设a.html页面里面要获取 <a href="http://b.com/data.php里面的json数据。那么我们可以在a.html页面中可以这样实现：" target="_blank" rel="noopener">http://b.com/data.php里面的json数据。那么我们可以在a.html页面中可以这样实现：</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">function</span> cb(jsondata)&#123;</span><br><span class="line">        //处理获得的json数据</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"http://b.com/data.php?callback=cb"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2017/01/02/cors/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			 
-        <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color3">跨域</a>
-        </li>
-      
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/02/cors/">展开全文 >></a>
         </p>
       
 
