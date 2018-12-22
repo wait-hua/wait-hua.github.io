@@ -199,10 +199,7 @@
 <li>更好的多端渲染支持</li>
 <li>新功能</li>
 </ul>
-<ol>
-<li>更快</li>
-</ol>
-<ul>
+<h3 id="更快"><a href="#更快" class="headerlink" title="更快"></a>更快</h3><ul>
 <li>vue3.0 将会对 virtual DOM 的实现进行完全重构，重构后的初始渲染、更新速度将会提升一倍。</li>
 <li><p>更多编译时的优化以减少运行时的开销。如下几个编译时优化：</p>
 <ul>
@@ -231,19 +228,10 @@
 <p>  通过上面这些优化，vue3.0 组件实例初始化可加快达一倍，并且占用内存减半。</p>
 </li>
 </ul>
-<ol start="2">
-<li><p>更小</p>
-<p> 在 vue2.0 中，所有的代码都在一个 vue 全局对象上，那些你代码中没有用到东西也没有办法扔掉。在 vue3.0 做了按需引入，只有你代码用到了哪些功能，才会去 import 相关的代码，再结合 Tree shaking 将那些没有用到的代码扔掉。这样 vue3.0 中最小核心运行时的代码大约只需要10kb gzipped。</p>
-</li>
-<li><p>更易于维护</p>
-<p> vue3.0 将使用 typescript 重写，并且使用了 monorepo 进行内部模块解耦。</p>
-</li>
-<li><p>更好的多端渲染支持</p>
-<p>vue3.0 中提取出了一个核心的 @vue/runtime-core 包，可以使用这个核心包进行开发可运行在小程序中等其他环境中。以往 vue2.0 中如果要开发一个可运行在小程序其他端中的化，可能需要 fork 一份 vue 源码然后进行改写，这样的话后续 vue 的升级可能需要解决冲突，或者看 vue 的更新源码，这样就非常的不方便。</p>
-</li>
-<li>新功能</li>
-</ol>
-<ul>
+<h3 id="更小"><a href="#更小" class="headerlink" title="更小"></a>更小</h3><p>在 vue2.0 中，所有的代码都在一个 vue 全局对象上，那些你代码中没有用到东西也没有办法扔掉。在 vue3.0 做了按需引入，只有你代码用到了哪些功能，才会去 import 相关的代码，再结合 Tree shaking 将那些没有用到的代码扔掉。这样 vue3.0 中最小核心运行时的代码大约只需要10kb gzipped。</p>
+<h3 id="更易于维护"><a href="#更易于维护" class="headerlink" title="更易于维护"></a>更易于维护</h3><p>vue3.0 将使用 typescript 重写，并且使用了 monorepo 进行内部模块解耦。</p>
+<h3 id="更好的多端渲染支持"><a href="#更好的多端渲染支持" class="headerlink" title="更好的多端渲染支持"></a>更好的多端渲染支持</h3><p>   vue3.0 中提取出了一个核心的 @vue/runtime-core 包，可以使用这个核心包进行开发可运行在小程序中等其他环境中。以往 vue2.0 中如果要开发一个可运行在小程序其他端中的化，可能需要 fork 一份 vue 源码然后进行改写，这样的话后续 vue 的升级可能需要解决冲突，或者看 vue 的更新源码，这样就非常的不方便。</p>
+<h3 id="新功能"><a href="#新功能" class="headerlink" title="新功能"></a>新功能</h3><ul>
 <li><p>响应式数据监听 API。vue3.0 中开放出了一个 observable API，可实现一些响应式数据监听。如下所示：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123; observable, effect &#125; from <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line">const state = observable(&#123;</span><br><span class="line">    count: 0</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">effect(() =&gt; &#123;</span><br><span class="line">    console.log(`count is: <span class="variable">$&#123;state.count&#125;</span>`)</span><br><span class="line">&#125;) // count is: 0</span><br><span class="line"></span><br><span class="line">state.count++ // count is: 1</span><br></pre></td></tr></table></figure>
 </li>
@@ -267,11 +255,7 @@
 <p>  React17 中也提出 time slicing: <a href="https://blog.pusher.com/time-slice-suspense-api-react-17/" target="_blank" rel="noopener">https://blog.pusher.com/time-slice-suspense-api-react-17/</a>，让框架在进行大量 JS 计算的时候，把 JS 计算切成一帧一帧的计算，不要让大量的 js 计算 block 了浏览器的主线程，浏览器在 block 时会处于一个完全没有响应的状态，用户的输入点击等都是无法被响应的，如果用户的输入导致了大量的 JS 计算，同时用户继续输入的话，会明显的一个输入卡顿性能下降的情况。要改进这个问题，可以通过每 16ms 处理完之后交还给浏览器，让用户的事件重新进来，触发更新，中间可能还可以因用户的输入导致新的更新，之前不必要的处理就不需要执行了，这样就不会造成一个卡顿的现象。</p>
 </li>
 </ul>
-<ol start="6">
-<li><p>关于IE。</p>
-<p> 前面提到了使用新的proxy数据监听是不支持IE11及以下的，那么在 IE11 中自动降级为旧的 getter/setter 机制，并对 IE 中不支持的用法给出警告，并且 IE11 中享受不了部分新的功能了。看来是时候放弃兼容 IE 了，感觉很好，回想兼容 IE8 是的可怕时光。。。</p>
-</li>
-</ol>
+<h3 id="关于IE。"><a href="#关于IE。" class="headerlink" title="关于IE。"></a>关于IE。</h3><p>前面提到了使用新的proxy数据监听是不支持IE11及以下的，那么在 IE11 中自动降级为旧的 getter/setter 机制，并对 IE 中不支持的用法给出警告，并且 IE11 中享受不了部分新的功能了。看来是时候放弃兼容 IE 了，感觉很好，回想兼容 IE8 是的可怕时光。。。</p>
 <blockquote>
 <p>我不是知识的创造者，我只是知识的搬运工。</p>
 </blockquote>
@@ -578,11 +562,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color2">vue3.0</a>
+                <a href="javascript:void(0)" class="color3">跨域</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color3">跨域</a>
+                <a href="javascript:void(0)" class="color2">vue3.0</a>
               </li>
             
             <div class="clearfix"></div>
