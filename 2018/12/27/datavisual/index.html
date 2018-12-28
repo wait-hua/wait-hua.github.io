@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>常用的数据可视化框架 | Friday</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近负责的业务涉及一些数据可视化展示，面对可视化的数据展示方面，往往会选择一款第三方的可视化工具，本文主要收集了一些主流开源的数据可视化框架，并附上部分小demo供参考。 d3 Data-Driven Documents 官网: https://d3js.org/ API文档：https://github.com/d3/d3/blob/master/API.md 提到数据可视化，就不得不提大名鼎鼎">
+<meta name="keywords" content="数据可视化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用的数据可视化框架">
+<meta property="og:url" content="http://yoursite.com/2018/12/27/datavisual/index.html">
+<meta property="og:site_name" content="Friday">
+<meta property="og:description" content="最近负责的业务涉及一些数据可视化展示，面对可视化的数据展示方面，往往会选择一款第三方的可视化工具，本文主要收集了一些主流开源的数据可视化框架，并附上部分小demo供参考。 d3 Data-Driven Documents 官网: https://d3js.org/ API文档：https://github.com/d3/d3/blob/master/API.md 提到数据可视化，就不得不提大名鼎鼎">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-28T09:34:50.436Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用的数据可视化框架">
+<meta name="twitter:description" content="最近负责的业务涉及一些数据可视化展示，面对可视化的数据展示方面，往往会选择一款第三方的可视化工具，本文主要收集了一些主流开源的数据可视化框架，并附上部分小demo供参考。 d3 Data-Driven Documents 官网: https://d3js.org/ API文档：https://github.com/d3/d3/blob/master/API.md 提到数据可视化，就不得不提大名鼎鼎">
+  
+    <link rel="alternative" href="/atom.xml" title="Friday" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" type="text/css" href="/main.fbf6be.css">
+  <style type="text/css">
+  
+    #container.show {
+      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+    }
+  </style>
+  
+
+  
+
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+</head>
+
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      
+<div class="overlay" style="background: url(&#39;/img/bg.jpg&#39;);background-size:100% 100%"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/me.jpg" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Friday</a></h1>
+		</hgroup>
+		
+		<p class="header-subtitle">做个开心的程序媛</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/">随笔</a></li>
+	        
+				<li><a href="/archives/">归档</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+    		
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/wait-hua" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/chuan-hua-37" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+					<a class="douban" target="_blank" href="https://www.douban.com/people/wait_hua/" title="douban"><i class="icon-douban"></i></a>
+		        
+					<a class="mail" target="_blank" href="mailto:friday_sh@163.com" title="mail"><i class="icon-mail"></i></a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      
+<nav id="mobile-nav">
+  	<div class="overlay js-overlay" style="background: url(&#39;/img/bg.jpg&#39;);background-size:100% 100%"></div>
+	<div class="btnctn js-mobile-btnctn">
+  		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
+	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/me.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author js-header-author">Friday</h1>
+			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>做个开心的程序媛<i class="icon icon-quo-right"></i></p>
+			
+			
+			
+				
+			
+				
+			
+				
+			
+			
+			
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wait-hua" title="github"><i class="icon-github"></i></a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/chuan-hua-37" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+						<a class="douban" target="_blank" href="https://www.douban.com/people/wait_hua/" title="douban"><i class="icon-douban"></i></a>
+			        
+						<a class="mail" target="_blank" href="mailto:friday_sh@163.com" title="mail"><i class="icon-mail"></i></a>
+			        
+				</div>
+			</nav>
+
+			<nav class="header-menu js-header-menu">
+				<ul style="width: 70%">
+				
+				
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/tags/">随笔</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/archives/">归档</a></li>
+		        
+				</ul>
+			</nav>
+		</header>				
+	</div>
+	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
+</nav>
+
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            <article id="post-datavisual" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常用的数据可视化框架
+    </h1>
+  
+
+        
+        <a href="/2018/12/27/datavisual/" class="archive-article-date">
+  	<time datetime="2018-12-27T08:02:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近负责的业务涉及一些数据可视化展示，面对可视化的数据展示方面，往往会选择一款第三方的可视化工具，本文主要收集了一些主流开源的数据可视化框架，并附上部分小demo供参考。</p>
+<h2 id="d3-Data-Driven-Documents"><a href="#d3-Data-Driven-Documents" class="headerlink" title="d3 Data-Driven Documents"></a>d3 Data-Driven Documents</h2><ul>
+<li>官网: <a href="https://d3js.org/" target="_blank" rel="noopener">https://d3js.org/</a></li>
+<li><p>API文档：<a href="https://github.com/d3/d3/blob/master/API.md" target="_blank" rel="noopener">https://github.com/d3/d3/blob/master/API.md</a></p>
+<p>提到数据可视化，就不得不提大名鼎鼎的 D3。2011年，Mike Bostock、Vadim Ogievetsky 和 Jeff Heer 发布了 D3，目前 github 上 star 数已达到8万 + 。用其官网介绍，D3 是一个基于数据操作文档的库，D3 帮助你给数据带来活力通过使用 HTML、SVG 和 CSS，结合强大的可视化组件和数据驱动方式操作 Dom。使用 D3 可以实现很多自定义的动态数据交互，它的很大优点是：</p>
+<ol>
+<li>灵活度高，可以使用它的基础 API 实现各种复杂的数据展示及结合自定义的交互操作。</li>
+<li>数据绑定到 DOM，能直接操作 DOM。</li>
+<li>自 D3 v4 开始即可基于 SVG，也可基于 Canvas 实现可视化，在数据量很大并且有交互更新视图的情况下，可使用基于 Canvas，如果数据量不是特别大的情况下，使用 SVG 非常方便。</li>
+<li>社区活跃 demo 众多。</li>
+</ol>
+<p>缺点是有一定的学习门槛，它并没有像 Echarts 样提供高度封装好的 API。  </p>
+<p>用 D3 实现一个简单的树形图展示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">import * as d3 from <span class="string">'d3'</span>;</span><br><span class="line">import <span class="string">'./d3.scss'</span>;</span><br><span class="line"></span><br><span class="line">const data = &#123;</span><br><span class="line">    name: <span class="string">'0'</span>,</span><br><span class="line">    children: [</span><br><span class="line">        &#123;</span><br><span class="line">            name: <span class="string">'0-0'</span>,</span><br><span class="line">            children: [</span><br><span class="line">                &#123;</span><br><span class="line">                    name: <span class="string">'0-0-0'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    name: <span class="string">'0-0-1'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    name: <span class="string">'0-0-2'</span></span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            name: <span class="string">'0-1'</span>,</span><br><span class="line">            children: [</span><br><span class="line">                &#123;</span><br><span class="line">                    name: <span class="string">'0-1-0'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    name: <span class="string">'0-1-1'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                &#123;</span><br><span class="line">                    name: <span class="string">'0-1-2'</span></span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            name: <span class="string">'0-2'</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            name: <span class="string">'0-3'</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const width = 700,</span><br><span class="line">    height = 700;</span><br><span class="line"></span><br><span class="line">const tree = d3.tree()</span><br><span class="line">    .size([width, height]);</span><br><span class="line"></span><br><span class="line">const diagonal = d3.linkHorizontal()</span><br><span class="line">    .x(<span class="keyword">function</span> (d) &#123; <span class="built_in">return</span> d.y; &#125;)</span><br><span class="line">    .y(<span class="keyword">function</span> (d) &#123; <span class="built_in">return</span> d.x; &#125;);</span><br><span class="line"></span><br><span class="line">const svg = d3.select(<span class="string">"#root"</span>).append(<span class="string">"svg"</span>)</span><br><span class="line">    .attr(<span class="string">"width"</span>, width + 800)</span><br><span class="line">    .attr(<span class="string">"height"</span>, height)</span><br><span class="line">    .append(<span class="string">"g"</span>)</span><br><span class="line">    .attr(<span class="string">"transform"</span>, <span class="string">"translate(40,0)"</span>);</span><br><span class="line"></span><br><span class="line">const nodes = d3.hierarchy(data, d =&gt; d.children);</span><br><span class="line"></span><br><span class="line">const treeNodes = tree(nodes);</span><br><span class="line"></span><br><span class="line">// 创建线条</span><br><span class="line">svg.selectAll(<span class="string">".link"</span>)</span><br><span class="line">    .data(treeNodes.links())</span><br><span class="line">    .enter()</span><br><span class="line">    .append(<span class="string">"path"</span>)</span><br><span class="line">    .attr(<span class="string">"class"</span>, <span class="string">"link"</span>)</span><br><span class="line">    .attr(<span class="string">"d"</span>, diagonal);</span><br><span class="line"></span><br><span class="line">// 创建节点</span><br><span class="line">const node = svg.selectAll(<span class="string">".node"</span>)</span><br><span class="line">    .data(treeNodes.descendants())</span><br><span class="line">    .enter()</span><br><span class="line">    .append(<span class="string">"g"</span>)</span><br><span class="line">    .attr(<span class="string">"class"</span>, <span class="string">"node"</span>)</span><br><span class="line">    .attr(<span class="string">"transform"</span>, <span class="keyword">function</span> (d) &#123; <span class="built_in">return</span> <span class="string">"translate("</span> + d.y + <span class="string">","</span> + d.x + <span class="string">")"</span>; &#125;);</span><br><span class="line"></span><br><span class="line">// 节点添加圆圈</span><br><span class="line">node.append(<span class="string">"circle"</span>)</span><br><span class="line">    .attr(<span class="string">"r"</span>, 4.5);</span><br><span class="line"></span><br><span class="line">// 节点添加文本描述</span><br><span class="line">node.append(<span class="string">"text"</span>)</span><br><span class="line">    .attr(<span class="string">"dx"</span>, 0)</span><br><span class="line">    .attr(<span class="string">"dy"</span>, -8)</span><br><span class="line">    .style(<span class="string">"text-anchor"</span>, <span class="string">'middle'</span>)</span><br><span class="line">    .text(<span class="keyword">function</span> (d) &#123; <span class="built_in">return</span> d.data.name; &#125;);</span><br></pre></td></tr></table></figure>
+<p>上面的代码是不是有种是曾相识的感觉，对，很像用 jquery 时操作 DOM 的用法。</p>
+</li>
+</ul>
+<h2 id="百度的echarts"><a href="#百度的echarts" class="headerlink" title="百度的echarts"></a>百度的echarts</h2><ul>
+<li><p>官网：<a href="http://echarts.baidu.com" target="_blank" rel="noopener">http://echarts.baidu.com</a></p>
+<p>相比 D3, echarts 的使用就可以说相对易用很多了。echarts 提供了大量的可视化类型，折线图、饼状图、地理图、热力图等等，并有大量的 demo, 社区也很活跃，文档也很全面。如果你的可视化展示需求比较简单，并且自定义交互并不复杂，那么 echarts 完全满足你的需求，并且使用起来也简单易用。缺点是扩展性并不是那么友好。</p>
+<p>用 echarts 实现一个多折线图表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">import Echarts from <span class="string">'echarts'</span>;</span><br><span class="line"></span><br><span class="line">const echart = Echarts.init(document.getElementById(<span class="string">'root'</span>));</span><br><span class="line">echart.setOption(&#123;</span><br><span class="line">    title: &#123;</span><br><span class="line">        text: <span class="string">'折线图'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    tooltip: &#123;</span><br><span class="line">        trigger: <span class="string">'axis'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    legend: &#123;</span><br><span class="line">        data:[<span class="string">'邮件营销'</span>,<span class="string">'联盟广告'</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    toolbox: &#123;</span><br><span class="line">        feature: &#123;</span><br><span class="line">            saveAsImage: &#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    xAxis: &#123;</span><br><span class="line">        <span class="built_in">type</span>: <span class="string">'value'</span>,</span><br><span class="line">        name: <span class="string">'区间'</span>,</span><br><span class="line">        nameLocation: <span class="string">'middle'</span>,</span><br><span class="line">        nameTextStyle: &#123;</span><br><span class="line">            fontWeight: <span class="string">'bold'</span>,</span><br><span class="line">            fontSize: 16</span><br><span class="line">        &#125;,</span><br><span class="line">        nameGap: 25</span><br><span class="line">    &#125;,</span><br><span class="line">    yAxis: &#123;</span><br><span class="line">        <span class="built_in">type</span>: <span class="string">'value'</span>,</span><br><span class="line">        name: <span class="string">'数量'</span>,</span><br><span class="line">        nameLocation: <span class="string">'middle'</span>,</span><br><span class="line">        nameTextStyle: &#123;</span><br><span class="line">            fontWeight: <span class="string">'bold'</span>,</span><br><span class="line">            fontSize: 16</span><br><span class="line">        &#125;,</span><br><span class="line">        nameGap: 55</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    series: [</span><br><span class="line">        &#123;</span><br><span class="line">            name:<span class="string">'邮件营销'</span>,</span><br><span class="line">            <span class="built_in">type</span>:<span class="string">'line'</span>,</span><br><span class="line">            data:[[20, 40], [40, 90], [70, 100], [90, 200]]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            name:<span class="string">'联盟广告'</span>,</span><br><span class="line">            <span class="built_in">type</span>:<span class="string">'line'</span>,</span><br><span class="line">            data:[[0, 40], [50, 70], [80, 100], [110, 300]]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="阿里的G2"><a href="#阿里的G2" class="headerlink" title="阿里的G2"></a>阿里的G2</h2><ul>
+<li><p>官网：<a href="https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html" target="_blank" rel="noopener">https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html</a></p>
+<p>G2 是阿里在2016开源的一套图表库，图表资源丰富。G2 背后的理论基础，也就是图形语法是基于 Leland Wilkinson 写的 The Grammar of Graphics，有兴趣的同学可以看看。G2 的优点简单易用，用户一条语句即可构建出各种各样的可交互的统计图表，相比于 echarts G2 更易于用来扩展自定义的图表，且风格较 echarts 更美观些。G2 3.2.7以前是基于 Canvas 的，3.2.7之后也同时支持 SVG了，关于如何选择基于 Canvas 或者 SVG，可以查看 G2 关于这部分的介绍：<a href="https://www.yuque.com/antv/g2-docs/tutorial-renderers" target="_blank" rel="noopener">选择 Canvas 还是 SVG</a>。</p>
+<p>G2 主要是一些统计图表，柱状图、饼图、地图、雷达图等，对于树形图，需要使用 G6，G6 底层依赖了 D3。</p>
+<p>用 G2 使用实现一个多折线图表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">import G2 from <span class="string">'@antv/g2'</span>;</span><br><span class="line">import DataSet from <span class="string">'@antv/data-set'</span>;</span><br><span class="line"></span><br><span class="line">const data = [&#123;</span><br><span class="line">    month: <span class="string">'Jan'</span>,</span><br><span class="line">    Tokyo: 7.0,</span><br><span class="line">    London: 3.9</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    month: <span class="string">'Feb'</span>,</span><br><span class="line">    Tokyo: 6.9,</span><br><span class="line">    London: 4.2</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    month: <span class="string">'Mar'</span>,</span><br><span class="line">    Tokyo: 9.5,</span><br><span class="line">    London: 5.7</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    month: <span class="string">'Apr'</span>,</span><br><span class="line">    Tokyo: 14.5,</span><br><span class="line">    London: 8.5</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    month: <span class="string">'May'</span>,</span><br><span class="line">    Tokyo: 18.4,</span><br><span class="line">    London: 11.9</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    month: <span class="string">'Jun'</span>,</span><br><span class="line">    Tokyo: 21.5,</span><br><span class="line">    London: 15.2</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    month: <span class="string">'Jul'</span>,</span><br><span class="line">    Tokyo: 25.2,</span><br><span class="line">    London: 17.0</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    month: <span class="string">'Aug'</span>,</span><br><span class="line">    Tokyo: 26.5,</span><br><span class="line">    London: 16.6</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    month: <span class="string">'Sep'</span>,</span><br><span class="line">    Tokyo: 23.3,</span><br><span class="line">    London: 14.2</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    month: <span class="string">'Oct'</span>,</span><br><span class="line">    Tokyo: 18.3,</span><br><span class="line">    London: 10.3</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    month: <span class="string">'Nov'</span>,</span><br><span class="line">    Tokyo: 13.9,</span><br><span class="line">    London: 6.6</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    month: <span class="string">'Dec'</span>,</span><br><span class="line">    Tokyo: 9.6,</span><br><span class="line">    London: 4.8</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">const ds = new DataSet();</span><br><span class="line">const dv = ds.createView().<span class="built_in">source</span>(data);</span><br><span class="line">// fold 方式完成了行列转换，如果不想使用 DataSet 直接手工转换数据即可</span><br><span class="line">// 转化成 &#123;month: <span class="string">'Jan'</span>, city: <span class="string">'Tokyo'</span>, temperature: 3.9&#125;</span><br><span class="line">dv.transform(&#123;</span><br><span class="line">    <span class="built_in">type</span>: <span class="string">'fold'</span>,</span><br><span class="line">    fields: [<span class="string">'Tokyo'</span>, <span class="string">'London'</span>], // 展开字段集</span><br><span class="line">    key: <span class="string">'city'</span>, // key字段</span><br><span class="line">    value: <span class="string">'temperature'</span> // value字段</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">const chart = new G2.Chart(&#123;</span><br><span class="line">    container: <span class="string">'root'</span>,</span><br><span class="line">    width: 800,</span><br><span class="line">    height: 500,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">chart.source(dv, &#123;</span><br><span class="line">    month: &#123;</span><br><span class="line">        range: [0, 1]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">chart.tooltip(&#123;</span><br><span class="line">    crosshairs: &#123;</span><br><span class="line">        <span class="built_in">type</span>: <span class="string">'line'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">chart.axis(<span class="string">'temperature'</span>, &#123;</span><br><span class="line">    label: &#123;</span><br><span class="line">        formatter: <span class="keyword">function</span> formatter(val) &#123;</span><br><span class="line">            <span class="built_in">return</span> val + <span class="string">'°C'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">chart.line().position(<span class="string">'month*temperature'</span>).color(<span class="string">'city'</span>).shape(<span class="string">'smooth'</span>);</span><br><span class="line">chart.point().position(<span class="string">'month*temperature'</span>).color(<span class="string">'city'</span>).size(4).shape(<span class="string">'circle'</span>).style(&#123;</span><br><span class="line">    stroke: <span class="string">'#fff'</span>,</span><br><span class="line">    lineWidth: 1</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">chart.render();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="阿里的F2-针对移动端的数据可视化库。"><a href="#阿里的F2-针对移动端的数据可视化库。" class="headerlink" title="阿里的F2: 针对移动端的数据可视化库。"></a>阿里的F2: 针对移动端的数据可视化库。</h2><ul>
+<li><p>官网：<a href="https://antv.alipay.com/zh-cn/f2/3.x/demo/index.html" target="_blank" rel="noopener">https://antv.alipay.com/zh-cn/f2/3.x/demo/index.html</a></p>
+<p>和 G2 类似，F2 也是基于图形语法实现的一套图表库，不同的是，F2 专注于移动端，完美支持 H5 环境同时兼容多种环境（Node, 小程序，Weex），专业的移动端交互设计。使用上和 G2 差不多。</p>
+</li>
+</ul>
+<h2 id="hightcharts"><a href="#hightcharts" class="headerlink" title="hightcharts"></a>hightcharts</h2><ul>
+<li><p>官网：<a href="https://www.highcharts.com/" target="_blank" rel="noopener">https://www.highcharts.com/</a></p>
+<p>hightcharts 和 echarts 类型，不过 echarts 是完全免费的，hightcharts 基于商业用途是需要授权。官网的 demo 也是非常的丰富。highcharts 由四部分组成：HighCharts、Highstock、Highmaps 和 gantt。HighCharts 支持的图表类型有曲线图、区域图、柱状图、饼状图、散点图和一些综合图表。 HighStock 可以为用户方便地建立股票或一般的时间轴图表，它提供先进的导航选项，预设的日期范围，日期选择器，滚动和平移等。Highmaps 提供一些地图类图表。gantt 提供甘特图类图表。</p>
+<p>用 highcharts 实现一个多折线图表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import Highcharts from <span class="string">'highcharts'</span>;</span><br><span class="line">import Exporting from <span class="string">'highcharts/modules/exporting'</span>;</span><br><span class="line"></span><br><span class="line">Exporting(Highcharts);</span><br><span class="line"></span><br><span class="line">Highcharts.chart(<span class="string">'root'</span>, &#123;</span><br><span class="line">    chart: &#123;</span><br><span class="line">        <span class="built_in">type</span>: <span class="string">'line'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    title: &#123;</span><br><span class="line">        text: <span class="string">'Monthly Average Temperature'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    subtitle: &#123;</span><br><span class="line">        text: <span class="string">'Source: WorldClimate.com'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    xAxis: &#123;</span><br><span class="line">        categories: [<span class="string">'Jan'</span>, <span class="string">'Feb'</span>, <span class="string">'Mar'</span>, <span class="string">'Apr'</span>, <span class="string">'May'</span>, <span class="string">'Jun'</span>, <span class="string">'Jul'</span>, <span class="string">'Aug'</span>, <span class="string">'Sep'</span>, <span class="string">'Oct'</span>, <span class="string">'Nov'</span>, <span class="string">'Dec'</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    yAxis: &#123;</span><br><span class="line">        title: &#123;</span><br><span class="line">            text: <span class="string">'Temperature (°C)'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    plotOptions: &#123;</span><br><span class="line">        line: &#123;</span><br><span class="line">            dataLabels: &#123;</span><br><span class="line">                enabled: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            enableMouseTracking: <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    series: [&#123;</span><br><span class="line">        name: <span class="string">'Tokyo'</span>,</span><br><span class="line">        data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        name: <span class="string">'London'</span>,</span><br><span class="line">        data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="charts-js"><a href="#charts-js" class="headerlink" title="charts.js"></a>charts.js</h2><ul>
+<li><p>官网：<a href="https://www.chartjs.org/" target="_blank" rel="noopener">https://www.chartjs.org/</a></p>
+<p>非常轻量级，动画美观，且支持模块化，即开发者可以拆分 Chart.js 仅引入自己需要的部分进入工程。缺点是仅仅只有几种基础的图表类：折线图、柱状图、散点图、区域图。</p>
+</li>
+</ul>
+<h2 id="阿里的L7-地理空间数据可视化"><a href="#阿里的L7-地理空间数据可视化" class="headerlink" title="阿里的L7:地理空间数据可视化"></a>阿里的L7:地理空间数据可视化</h2><ul>
+<li><p>官网：<a href="https://antv.alipay.com/zh-cn/l7/1.x/demo/index.html" target="_blank" rel="noopener">https://antv.alipay.com/zh-cn/l7/1.x/demo/index.html</a></p>
+<p>L7 是基于地理空间的数据可视化，易用易扩展，支持海量数据的高性能和 3D 高质量渲染。</p>
+</li>
+</ul>
+<h2 id="Leaflet"><a href="#Leaflet" class="headerlink" title="Leaflet:"></a>Leaflet:</h2><ul>
+<li><p>官网：<a href="http://leafletjs.com/" target="_blank" rel="noopener">http://leafletjs.com/</a></p>
+<p>本身的内核库很小，丰富的插件可以大幅拓展其功能，主要用于需要展示地理位置的项目。可同时运行桌面端和移动端。</p>
+</li>
+</ul>
+<h2 id="Recharts"><a href="#Recharts" class="headerlink" title="Recharts"></a>Recharts</h2><ul>
+<li><p>官网：<a href="http://recharts.org/zh-CN/" target="_blank" rel="noopener">http://recharts.org/zh-CN/</a></p>
+<p> Recharts 是 React 结合 D3 的一个图表库，依赖于轻量级的 D3 子模块构建 SVG 元素。可以调整组件的属性与传递组件自定义你的图表。官网上提供了9中图表类型，也有响应的示例，对于习惯用 react 组件，这个图表库的用法和 react 组件用户基本一样。</p>
+<p> 用 recharts 实现的折线图表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; PureComponent &#125; from <span class="string">'react'</span>;</span><br><span class="line">import ReactDOM from <span class="string">'react-dom'</span>;</span><br><span class="line">import &#123;</span><br><span class="line">    LineChart,</span><br><span class="line">    Line,</span><br><span class="line">    XAxis,</span><br><span class="line">    YAxis,</span><br><span class="line">    CartesianGrid,</span><br><span class="line">    Tooltip,</span><br><span class="line">    Legend</span><br><span class="line">&#125; from <span class="string">'recharts'</span>;</span><br><span class="line"></span><br><span class="line">const data = [</span><br><span class="line">    &#123; name: <span class="string">'Page A'</span>, uv: 4000, pv: 2400, amt: 2400 &#125;,</span><br><span class="line">    &#123; name: <span class="string">'Page B'</span>, uv: 3000, pv: 1398, amt: 2210 &#125;,</span><br><span class="line">    &#123; name: <span class="string">'Page C'</span>, uv: 2000, pv: 9800, amt: 2290 &#125;,</span><br><span class="line">    &#123; name: <span class="string">'Page D'</span>, uv: 2780, pv: 3908, amt: 2000 &#125;,</span><br><span class="line">    &#123; name: <span class="string">'Page E'</span>, uv: 1890, pv: 4800, amt: 2181 &#125;,</span><br><span class="line">    &#123; name: <span class="string">'Page F'</span>, uv: 2390, pv: 3800, amt: 2500 &#125;,</span><br><span class="line">    &#123; name: <span class="string">'Page G'</span>, uv: 3490, pv: 4300, amt: 2100 &#125;,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">class SimpleLineChart extends PureComponent &#123;</span><br><span class="line">    <span class="function"><span class="title">render</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> (</span><br><span class="line">            &lt;LineChart width=&#123;600&#125; height=&#123;300&#125; data=&#123;data&#125;</span><br><span class="line">                margin=&#123;&#123; top: 5, right: 30, left: 20, bottom: 5 &#125;&#125;&gt;</span><br><span class="line">                &lt;XAxis dataKey=<span class="string">"name"</span> /&gt;</span><br><span class="line">                &lt;YAxis /&gt;</span><br><span class="line">                &lt;CartesianGrid strokeDasharray=<span class="string">"3 3"</span> /&gt;</span><br><span class="line">                &lt;Tooltip /&gt;</span><br><span class="line">                &lt;Legend /&gt;</span><br><span class="line">                &lt;Line <span class="built_in">type</span>=<span class="string">"monotone"</span> dataKey=<span class="string">"pv"</span> stroke=<span class="string">"#8884d8"</span> activeDot=&#123;&#123; r: 8 &#125;&#125; /&gt;</span><br><span class="line">                &lt;Line <span class="built_in">type</span>=<span class="string">"monotone"</span> dataKey=<span class="string">"uv"</span> stroke=<span class="string">"#82ca9d"</span> /&gt;</span><br><span class="line">            &lt;/LineChart&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;SimpleLineChart /&gt;,</span><br><span class="line">    document.getElementById(<span class="string">'root'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="React-vis"><a href="#React-vis" class="headerlink" title="React-vis"></a>React-vis</h2><ul>
+<li><p>官网：<a href="https://uber.github.io/react-vis/" target="_blank" rel="noopener">https://uber.github.io/react-vis/</a></p>
+<p>React-vis 是 Uber 开源的一款图表库，包括线、面、柱状图、热图、散热图、等高线图、六角热图等等。使用上对 React 开发者非常友好，和 React 组件差不多。使用该库不需要事先掌握 D3 或任何其他 data-vis 库的知识，并提供了低级模块化的构建块组件，如 x/y 轴。官方 demo 也挺丰富的。</p>
+</li>
+</ul>
+<blockquote>
+<p>文中 demo 主要从代码层面展示各个框架的用法，具体代码及效果图可参考：<a href="https://github.com/wait-hua/datavisual" target="_blank" rel="noopener">https://github.com/wait-hua/datavisual</a> </p>
+</blockquote>
+<blockquote>
+<p>这里介绍的都是文档和demo都比较丰富的数据可视化框架，欢迎推荐其他好用的数据可视化框架。</p>
+</blockquote>
+<p>References:</p>
+<ul>
+<li><a href="https://github.com/xswei/d3js_doc" target="_blank" rel="noopener">https://github.com/xswei/d3js_doc</a></li>
+<li><a href="https://blockbuilder.org/63anp3ca/e73145f5f74a3ef86e4ba76371a9d907" target="_blank" rel="noopener">https://blockbuilder.org/63anp3ca/e73145f5f74a3ef86e4ba76371a9d907</a></li>
+<li><a href="http://efe.baidu.com/blog/14-popular-data-visualization-tools/" target="_blank" rel="noopener">http://efe.baidu.com/blog/14-popular-data-visualization-tools/</a></li>
+<li><a href="http://www.10tiao.com/html/788/201809/2247489515/1.html" target="_blank" rel="noopener">http://www.10tiao.com/html/788/201809/2247489515/1.html</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/apay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+            <span class="tooltip-award f-dn">
+              <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+              <div class="reward-box">
+                
+                <div class="reward-box-item">
+                  <img class="reward-img" src="/img/apay.jpg">
+                  <span class="reward-type">支付宝</span>
+                </div>
+                
+                
+                <div class="reward-box-item">
+                  <img class="reward-img" src="/img/weixin.jpg">
+                  <span class="reward-type">微信</span>
+                </div>
+                
+              </div>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			 
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color1">数据可视化</a>
+        </li>
+      
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/12/02/vue3.0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">译 - Vue3.0最新功能</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
+  
+
+
+
+<!-- gitment -->
+<section>
+  <div id="gitcomments" class="m-gitcomments"></div>
+  <script>
+    var gitment = new Gitment({
+      owner: 'wait-hua',
+      repo: 'wait-hua.github.io',
+      oauth: {
+        client_id: 'd0ce7f75f6a405e152f7',
+        client_secret: '66977d7b9e9a42634158269245d0b103ee2c5bff',
+      },
+    });
+    gitment.render('gitcomments');
+  </script>
+</section>
+
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		
+    	</div>
+      	<div class="footer-right">
+      		&copy; 2018 Friday
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		mathjax: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true,
+		showTags: false
+	}
+</script>
+
+<script>
+!function(t){function n(r){if(e[r])return e[r].exports;var o=e[r]={exports:{},id:r,loaded:!1};return t[r].call(o.exports,o,o.exports,n),o.loaded=!0,o.exports}var e={};return n.m=t,n.c=e,n.p="/",n(0)}([function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}function o(t,n){var e=/\/|index.html/g;return t.replace(e,"")===n.replace(e,"")}function i(){for(var t=document.querySelectorAll(".js-header-menu li a"),n=window.location.pathname,e=0,r=t.length;e<r;e++){var i=t[e];o(n,i.getAttribute("href"))&&(0,d.default)(i,"active")}}function u(t){for(var n=t.offsetLeft,e=t.offsetParent;null!==e;)n+=e.offsetLeft,e=e.offsetParent;return n}function c(t){for(var n=t.offsetTop,e=t.offsetParent;null!==e;)n+=e.offsetTop,e=e.offsetParent;return n}function f(t,n,e,r,o){var i=u(t),f=c(t)-n;if(f-e<=o){var a=t.$newDom;a||(a=t.cloneNode(!0),(0,h.default)(t,a),t.$newDom=a,a.style.position="fixed",a.style.top=(e||f)+"px",a.style.left=i+"px",a.style.zIndex=r||2,a.style.width="100%",a.style.color="#fff"),a.style.visibility="visible",t.style.visibility="hidden"}else{t.style.visibility="visible";var s=t.$newDom;s&&(s.style.visibility="hidden")}}function a(){var t=document.querySelector(".js-overlay"),n=document.querySelector(".js-header-menu");f(t,document.body.scrollTop,-63,2,0),f(n,document.body.scrollTop,1,3,0)}function s(){document.querySelector("#container").addEventListener("scroll",function(t){a()}),window.addEventListener("scroll",function(t){a()}),a()}function l(){m.default.versions.mobile&&window.screen.width<800&&(i(),s())}var p=e(68),d=r(p),v=e(69),y=(r(v),e(85)),h=r(y),b=e(70),m=r(b),g=e(75),x=r(g),S=e(71);l(),(0,S.addLoadEvent)(function(){x.default.init()}),t.exports={}},function(t,n){var e=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=e)},function(t,n){var e={}.hasOwnProperty;t.exports=function(t,n){return e.call(t,n)}},function(t,n,e){t.exports=!e(10)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,n,e){var r=e(5),o=e(13);t.exports=e(3)?function(t,n,e){return r.f(t,n,o(1,e))}:function(t,n,e){return t[n]=e,t}},function(t,n,e){var r=e(11),o=e(30),i=e(24),u=Object.defineProperty;n.f=e(3)?Object.defineProperty:function(t,n,e){if(r(t),n=i(n,!0),r(e),o)try{return u(t,n,e)}catch(t){}if("get"in e||"set"in e)throw TypeError("Accessors not supported!");return"value"in e&&(t[n]=e.value),t}},function(t,n,e){var r=e(49),o=e(16);t.exports=function(t){return r(o(t))}},function(t,n,e){var r=e(22)("wks"),o=e(14),i=e(1).Symbol,u="function"==typeof i,c=t.exports=function(t){return r[t]||(r[t]=u&&i[t]||(u?i:o)("Symbol."+t))};c.store=r},function(t,n){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,n){var e=t.exports={version:"2.5.7"};"number"==typeof __e&&(__e=e)},function(t,n){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,n,e){var r=e(8);t.exports=function(t){if(!r(t))throw TypeError(t+" is not an object!");return t}},function(t,n){t.exports=!0},function(t,n){t.exports=function(t,n){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:n}}},function(t,n){var e=0,r=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++e+r).toString(36))}},function(t,n,e){var r=e(35),o=e(17);t.exports=Object.keys||function(t){return r(t,o)}},function(t,n){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,n){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,n){t.exports={}},function(t,n){n.f={}.propertyIsEnumerable},function(t,n,e){var r=e(5).f,o=e(2),i=e(7)("toStringTag");t.exports=function(t,n,e){t&&!o(t=e?t:t.prototype,i)&&r(t,i,{configurable:!0,value:n})}},function(t,n,e){var r=e(22)("keys"),o=e(14);t.exports=function(t){return r[t]||(r[t]=o(t))}},function(t,n,e){var r=e(9),o=e(1),i="__core-js_shared__",u=o[i]||(o[i]={});(t.exports=function(t,n){return u[t]||(u[t]=void 0!==n?n:{})})("versions",[]).push({version:r.version,mode:e(12)?"pure":"global",copyright:"© 2018 Denis Pushkarev (zloirock.ru)"})},function(t,n){var e=Math.ceil,r=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?r:e)(t)}},function(t,n,e){var r=e(8);t.exports=function(t,n){if(!r(t))return t;var e,o;if(n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;if("function"==typeof(e=t.valueOf)&&!r(o=e.call(t)))return o;if(!n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;throw TypeError("Can't convert object to primitive value")}},function(t,n,e){var r=e(1),o=e(9),i=e(12),u=e(26),c=e(5).f;t.exports=function(t){var n=o.Symbol||(o.Symbol=i?{}:r.Symbol||{});"_"==t.charAt(0)||t in n||c(n,t,{value:u.f(t)})}},function(t,n,e){n.f=e(7)},function(t,n,e){var r=e(1),o=e(9),i=e(46),u=e(4),c=e(2),f="prototype",a=function(t,n,e){var s,l,p,d=t&a.F,v=t&a.G,y=t&a.S,h=t&a.P,b=t&a.B,m=t&a.W,g=v?o:o[n]||(o[n]={}),x=g[f],S=v?r:y?r[n]:(r[n]||{})[f];v&&(e=n);for(s in e)l=!d&&S&&void 0!==S[s],l&&c(g,s)||(p=l?S[s]:e[s],g[s]=v&&"function"!=typeof S[s]?e[s]:b&&l?i(p,r):m&&S[s]==p?function(t){var n=function(n,e,r){if(this instanceof t){switch(arguments.length){case 0:return new t;case 1:return new t(n);case 2:return new t(n,e)}return new t(n,e,r)}return t.apply(this,arguments)};return n[f]=t[f],n}(p):h&&"function"==typeof p?i(Function.call,p):p,h&&((g.virtual||(g.virtual={}))[s]=p,t&a.R&&x&&!x[s]&&u(x,s,p)))};a.F=1,a.G=2,a.S=4,a.P=8,a.B=16,a.W=32,a.U=64,a.R=128,t.exports=a},function(t,n){var e={}.toString;t.exports=function(t){return e.call(t).slice(8,-1)}},function(t,n,e){var r=e(8),o=e(1).document,i=r(o)&&r(o.createElement);t.exports=function(t){return i?o.createElement(t):{}}},function(t,n,e){t.exports=!e(3)&&!e(10)(function(){return 7!=Object.defineProperty(e(29)("div"),"a",{get:function(){return 7}}).a})},function(t,n,e){"use strict";var r=e(12),o=e(27),i=e(36),u=e(4),c=e(18),f=e(51),a=e(20),s=e(57),l=e(7)("iterator"),p=!([].keys&&"next"in[].keys()),d="@@iterator",v="keys",y="values",h=function(){return this};t.exports=function(t,n,e,b,m,g,x){f(e,n,b);var S,w,O,_=function(t){if(!p&&t in M)return M[t];switch(t){case v:return function(){return new e(this,t)};case y:return function(){return new e(this,t)}}return function(){return new e(this,t)}},j=n+" Iterator",L=m==y,P=!1,M=t.prototype,T=M[l]||M[d]||m&&M[m],E=T||_(m),A=m?L?_("entries"):E:void 0,C="Array"==n?M.entries||T:T;if(C&&(O=s(C.call(new t)),O!==Object.prototype&&O.next&&(a(O,j,!0),r||"function"==typeof O[l]||u(O,l,h))),L&&T&&T.name!==y&&(P=!0,E=function(){return T.call(this)}),r&&!x||!p&&!P&&M[l]||u(M,l,E),c[n]=E,c[j]=h,m)if(S={values:L?E:_(y),keys:g?E:_(v),entries:A},x)for(w in S)w in M||i(M,w,S[w]);else o(o.P+o.F*(p||P),n,S);return S}},function(t,n,e){var r=e(11),o=e(54),i=e(17),u=e(21)("IE_PROTO"),c=function(){},f="prototype",a=function(){var t,n=e(29)("iframe"),r=i.length,o="<",u=">";for(n.style.display="none",e(48).appendChild(n),n.src="javascript:",t=n.contentWindow.document,t.open(),t.write(o+"script"+u+"document.F=Object"+o+"/script"+u),t.close(),a=t.F;r--;)delete a[f][i[r]];return a()};t.exports=Object.create||function(t,n){var e;return null!==t?(c[f]=r(t),e=new c,c[f]=null,e[u]=t):e=a(),void 0===n?e:o(e,n)}},function(t,n,e){var r=e(35),o=e(17).concat("length","prototype");n.f=Object.getOwnPropertyNames||function(t){return r(t,o)}},function(t,n){n.f=Object.getOwnPropertySymbols},function(t,n,e){var r=e(2),o=e(6),i=e(45)(!1),u=e(21)("IE_PROTO");t.exports=function(t,n){var e,c=o(t),f=0,a=[];for(e in c)e!=u&&r(c,e)&&a.push(e);for(;n.length>f;)r(c,e=n[f++])&&(~i(a,e)||a.push(e));return a}},function(t,n,e){t.exports=e(4)},function(t,n,e){var r=e(16);t.exports=function(t){return Object(r(t))}},function(t,n,e){t.exports={default:e(41),__esModule:!0}},function(t,n,e){t.exports={default:e(42),__esModule:!0}},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}n.__esModule=!0;var o=e(39),i=r(o),u=e(38),c=r(u),f="function"==typeof c.default&&"symbol"==typeof i.default?function(t){return typeof t}:function(t){return t&&"function"==typeof c.default&&t.constructor===c.default&&t!==c.default.prototype?"symbol":typeof t};n.default="function"==typeof c.default&&"symbol"===f(i.default)?function(t){return"undefined"==typeof t?"undefined":f(t)}:function(t){return t&&"function"==typeof c.default&&t.constructor===c.default&&t!==c.default.prototype?"symbol":"undefined"==typeof t?"undefined":f(t)}},function(t,n,e){e(64),e(62),e(65),e(66),t.exports=e(9).Symbol},function(t,n,e){e(63),e(67),t.exports=e(26).f("iterator")},function(t,n){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,n){t.exports=function(){}},function(t,n,e){var r=e(6),o=e(60),i=e(59);t.exports=function(t){return function(n,e,u){var c,f=r(n),a=o(f.length),s=i(u,a);if(t&&e!=e){for(;a>s;)if(c=f[s++],c!=c)return!0}else for(;a>s;s++)if((t||s in f)&&f[s]===e)return t||s||0;return!t&&-1}}},function(t,n,e){var r=e(43);t.exports=function(t,n,e){if(r(t),void 0===n)return t;switch(e){case 1:return function(e){return t.call(n,e)};case 2:return function(e,r){return t.call(n,e,r)};case 3:return function(e,r,o){return t.call(n,e,r,o)}}return function(){return t.apply(n,arguments)}}},function(t,n,e){var r=e(15),o=e(34),i=e(19);t.exports=function(t){var n=r(t),e=o.f;if(e)for(var u,c=e(t),f=i.f,a=0;c.length>a;)f.call(t,u=c[a++])&&n.push(u);return n}},function(t,n,e){var r=e(1).document;t.exports=r&&r.documentElement},function(t,n,e){var r=e(28);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==r(t)?t.split(""):Object(t)}},function(t,n,e){var r=e(28);t.exports=Array.isArray||function(t){return"Array"==r(t)}},function(t,n,e){"use strict";var r=e(32),o=e(13),i=e(20),u={};e(4)(u,e(7)("iterator"),function(){return this}),t.exports=function(t,n,e){t.prototype=r(u,{next:o(1,e)}),i(t,n+" Iterator")}},function(t,n){t.exports=function(t,n){return{value:n,done:!!t}}},function(t,n,e){var r=e(14)("meta"),o=e(8),i=e(2),u=e(5).f,c=0,f=Object.isExtensible||function(){return!0},a=!e(10)(function(){return f(Object.preventExtensions({}))}),s=function(t){u(t,r,{value:{i:"O"+ ++c,w:{}}})},l=function(t,n){if(!o(t))return"symbol"==typeof t?t:("string"==typeof t?"S":"P")+t;if(!i(t,r)){if(!f(t))return"F";if(!n)return"E";s(t)}return t[r].i},p=function(t,n){if(!i(t,r)){if(!f(t))return!0;if(!n)return!1;s(t)}return t[r].w},d=function(t){return a&&v.NEED&&f(t)&&!i(t,r)&&s(t),t},v=t.exports={KEY:r,NEED:!1,fastKey:l,getWeak:p,onFreeze:d}},function(t,n,e){var r=e(5),o=e(11),i=e(15);t.exports=e(3)?Object.defineProperties:function(t,n){o(t);for(var e,u=i(n),c=u.length,f=0;c>f;)r.f(t,e=u[f++],n[e]);return t}},function(t,n,e){var r=e(19),o=e(13),i=e(6),u=e(24),c=e(2),f=e(30),a=Object.getOwnPropertyDescriptor;n.f=e(3)?a:function(t,n){if(t=i(t),n=u(n,!0),f)try{return a(t,n)}catch(t){}if(c(t,n))return o(!r.f.call(t,n),t[n])}},function(t,n,e){var r=e(6),o=e(33).f,i={}.toString,u="object"==typeof window&&window&&Object.getOwnPropertyNames?Object.getOwnPropertyNames(window):[],c=function(t){try{return o(t)}catch(t){return u.slice()}};t.exports.f=function(t){return u&&"[object Window]"==i.call(t)?c(t):o(r(t))}},function(t,n,e){var r=e(2),o=e(37),i=e(21)("IE_PROTO"),u=Object.prototype;t.exports=Object.getPrototypeOf||function(t){return t=o(t),r(t,i)?t[i]:"function"==typeof t.constructor&&t instanceof t.constructor?t.constructor.prototype:t instanceof Object?u:null}},function(t,n,e){var r=e(23),o=e(16);t.exports=function(t){return function(n,e){var i,u,c=String(o(n)),f=r(e),a=c.length;return f<0||f>=a?t?"":void 0:(i=c.charCodeAt(f),i<55296||i>56319||f+1===a||(u=c.charCodeAt(f+1))<56320||u>57343?t?c.charAt(f):i:t?c.slice(f,f+2):(i-55296<<10)+(u-56320)+65536)}}},function(t,n,e){var r=e(23),o=Math.max,i=Math.min;t.exports=function(t,n){return t=r(t),t<0?o(t+n,0):i(t,n)}},function(t,n,e){var r=e(23),o=Math.min;t.exports=function(t){return t>0?o(r(t),9007199254740991):0}},function(t,n,e){"use strict";var r=e(44),o=e(52),i=e(18),u=e(6);t.exports=e(31)(Array,"Array",function(t,n){this._t=u(t),this._i=0,this._k=n},function(){var t=this._t,n=this._k,e=this._i++;return!t||e>=t.length?(this._t=void 0,o(1)):"keys"==n?o(0,e):"values"==n?o(0,t[e]):o(0,[e,t[e]])},"values"),i.Arguments=i.Array,r("keys"),r("values"),r("entries")},function(t,n){},function(t,n,e){"use strict";var r=e(58)(!0);e(31)(String,"String",function(t){this._t=String(t),this._i=0},function(){var t,n=this._t,e=this._i;return e>=n.length?{value:void 0,done:!0}:(t=r(n,e),this._i+=t.length,{value:t,done:!1})})},function(t,n,e){"use strict";var r=e(1),o=e(2),i=e(3),u=e(27),c=e(36),f=e(53).KEY,a=e(10),s=e(22),l=e(20),p=e(14),d=e(7),v=e(26),y=e(25),h=e(47),b=e(50),m=e(11),g=e(8),x=e(6),S=e(24),w=e(13),O=e(32),_=e(56),j=e(55),L=e(5),P=e(15),M=j.f,T=L.f,E=_.f,A=r.Symbol,C=r.JSON,N=C&&C.stringify,k="prototype",F=d("_hidden"),q=d("toPrimitive"),I={}.propertyIsEnumerable,D=s("symbol-registry"),H=s("symbols"),G=s("op-symbols"),R=Object[k],B="function"==typeof A,W=r.QObject,K=!W||!W[k]||!W[k].findChild,V=i&&a(function(){return 7!=O(T({},"a",{get:function(){return T(this,"a",{value:7}).a}})).a})?function(t,n,e){var r=M(R,n);r&&delete R[n],T(t,n,e),r&&t!==R&&T(R,n,r)}:T,J=function(t){var n=H[t]=O(A[k]);return n._k=t,n},U=B&&"symbol"==typeof A.iterator?function(t){return"symbol"==typeof t}:function(t){return t instanceof A},z=function(t,n,e){return t===R&&z(G,n,e),m(t),n=S(n,!0),m(e),o(H,n)?(e.enumerable?(o(t,F)&&t[F][n]&&(t[F][n]=!1),e=O(e,{enumerable:w(0,!1)})):(o(t,F)||T(t,F,w(1,{})),t[F][n]=!0),V(t,n,e)):T(t,n,e)},$=function(t,n){m(t);for(var e,r=h(n=x(n)),o=0,i=r.length;i>o;)z(t,e=r[o++],n[e]);return t},Y=function(t,n){return void 0===n?O(t):$(O(t),n)},Q=function(t){var n=I.call(this,t=S(t,!0));return!(this===R&&o(H,t)&&!o(G,t))&&(!(n||!o(this,t)||!o(H,t)||o(this,F)&&this[F][t])||n)},X=function(t,n){if(t=x(t),n=S(n,!0),t!==R||!o(H,n)||o(G,n)){var e=M(t,n);return!e||!o(H,n)||o(t,F)&&t[F][n]||(e.enumerable=!0),e}},Z=function(t){for(var n,e=E(x(t)),r=[],i=0;e.length>i;)o(H,n=e[i++])||n==F||n==f||r.push(n);return r},tt=function(t){for(var n,e=t===R,r=E(e?G:x(t)),i=[],u=0;r.length>u;)!o(H,n=r[u++])||e&&!o(R,n)||i.push(H[n]);return i};B||(A=function(){if(this instanceof A)throw TypeError("Symbol is not a constructor!");var t=p(arguments.length>0?arguments[0]:void 0),n=function(e){this===R&&n.call(G,e),o(this,F)&&o(this[F],t)&&(this[F][t]=!1),V(this,t,w(1,e))};return i&&K&&V(R,t,{configurable:!0,set:n}),J(t)},c(A[k],"toString",function(){return this._k}),j.f=X,L.f=z,e(33).f=_.f=Z,e(19).f=Q,e(34).f=tt,i&&!e(12)&&c(R,"propertyIsEnumerable",Q,!0),v.f=function(t){return J(d(t))}),u(u.G+u.W+u.F*!B,{Symbol:A});for(var nt="hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables".split(","),et=0;nt.length>et;)d(nt[et++]);for(var rt=P(d.store),ot=0;rt.length>ot;)y(rt[ot++]);u(u.S+u.F*!B,"Symbol",{for:function(t){return o(D,t+="")?D[t]:D[t]=A(t)},keyFor:function(t){if(!U(t))throw TypeError(t+" is not a symbol!");for(var n in D)if(D[n]===t)return n},useSetter:function(){K=!0},useSimple:function(){K=!1}}),u(u.S+u.F*!B,"Object",{create:Y,defineProperty:z,defineProperties:$,getOwnPropertyDescriptor:X,getOwnPropertyNames:Z,getOwnPropertySymbols:tt}),C&&u(u.S+u.F*(!B||a(function(){var t=A();return"[null]"!=N([t])||"{}"!=N({a:t})||"{}"!=N(Object(t))})),"JSON",{stringify:function(t){for(var n,e,r=[t],o=1;arguments.length>o;)r.push(arguments[o++]);if(e=n=r[1],(g(n)||void 0!==t)&&!U(t))return b(n)||(n=function(t,n){if("function"==typeof e&&(n=e.call(this,t,n)),!U(n))return n}),r[1]=n,N.apply(C,r)}}),A[k][q]||e(4)(A[k],q,A[k].valueOf),l(A,"Symbol"),l(Math,"Math",!0),l(r.JSON,"JSON",!0)},function(t,n,e){e(25)("asyncIterator")},function(t,n,e){e(25)("observable")},function(t,n,e){e(61);for(var r=e(1),o=e(4),i=e(18),u=e(7)("toStringTag"),c="CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,DOMTokenList,DataTransferItemList,FileList,HTMLAllCollection,HTMLCollection,HTMLFormElement,HTMLSelectElement,MediaList,MimeTypeArray,NamedNodeMap,NodeList,PaintRequestList,Plugin,PluginArray,SVGLengthList,SVGNumberList,SVGPathSegList,SVGPointList,SVGStringList,SVGTransformList,SourceBufferList,StyleSheetList,TextTrackCueList,TextTrackList,TouchList".split(","),f=0;f<c.length;f++){var a=c[f],s=r[a],l=s&&s.prototype;l&&!l[u]&&o(l,u,a),i[a]=i.Array}},function(t,n){function e(t,n){t.classList?t.classList.add(n):t.className+=" "+n}t.exports=e},function(t,n){function e(t,n){if(t.classList)t.classList.remove(n);else{var e=new RegExp("(^|\\b)"+n.split(" ").join("|")+"(\\b|$)","gi");t.className=t.className.replace(e," ")}}t.exports=e},function(t,n){"use strict";var e={versions:function(){var t=window.navigator.userAgent;return{trident:t.indexOf("Trident")>-1,presto:t.indexOf("Presto")>-1,webKit:t.indexOf("AppleWebKit")>-1,gecko:t.indexOf("Gecko")>-1&&t.indexOf("KHTML")==-1,mobile:!!t.match(/AppleWebKit.*Mobile.*/),ios:!!t.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),android:t.indexOf("Android")>-1||t.indexOf("Linux")>-1,iPhone:t.indexOf("iPhone")>-1||t.indexOf("Mac")>-1,iPad:t.indexOf("iPad")>-1,webApp:t.indexOf("Safari")==-1,weixin:t.indexOf("MicroMessenger")==-1}}()};t.exports=e},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}var o=e(40),i=r(o),u=function(){function t(t,n,e){return n||e?String.fromCharCode(n||e):o[t]||t}function n(t){return l[t]}var e=/&quot;|&lt;|&gt;|&amp;|&nbsp;|&apos;|&#(\d+);|&#(\d+)/g,r=/['<> "&]/g,o={"&quot;":'"',"&lt;":"<","&gt;":">","&amp;":"&","&nbsp;":" "},c=/\u00a0/g,f=/<br\s*\/?>/gi,a=/\r?\n/g,s=/\s/g,l={};for(var p in o)l[o[p]]=p;return o["&apos;"]="'",l["'"]="&#39;",{encode:function(t){return t?(""+t).replace(r,n).replace(a,"<br/>").replace(s,"&nbsp;"):""},decode:function(n){return n?(""+n).replace(f,"\n").replace(e,t).replace(c," "):""},encodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},encodeBase16forJSON:function(t){if(!t)return t;t=t.replace(/[\u4E00-\u9FBF]/gi,function(t){return escape(t).replace("%u","\\u")});for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},decodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e+=2)n.push(String.fromCharCode("0x"+t.slice(e,e+2)));return n.join("")},encodeObject:function(t){if(t instanceof Array)for(var n=0,e=t.length;e>n;n++)t[n]=u.encodeObject(t[n]);else if("object"==("undefined"==typeof t?"undefined":(0,i.default)(t)))for(var r in t)t[r]=u.encodeObject(t[r]);else if("string"==typeof t)return u.encode(t);return t},loadScript:function(t){var n=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(n),n.setAttribute("src",t)},addLoadEvent:function(t){var n=window.onload;"function"!=typeof window.onload?window.onload=t:window.onload=function(){n(),t()}}}}();t.exports=u},,,,function(t,n){"use strict";function e(){var t=document.querySelector("#page-nav");if(t&&!document.querySelector("#page-nav .extend.prev")&&(t.innerHTML='<a class="extend prev disabled" rel="prev">&laquo; Prev</a>'+t.innerHTML),t&&!document.querySelector("#page-nav .extend.next")&&(t.innerHTML=t.innerHTML+'<a class="extend next disabled" rel="next">Next &raquo;</a>'),yiliaConfig&&yiliaConfig.open_in_new){var n=document.querySelectorAll(".article-entry a:not(.article-more-a)");n.forEach(function(t){t.setAttribute("target","_blank")})}var e=document.querySelector("#js-aboutme");e&&0!==e.length&&(e.innerHTML=e.innerText)}t.exports={init:e}},,,,,,,,,,function(t,n){function e(t,n){if("string"==typeof n)return t.insertAdjacentHTML("afterend",n);var e=t.nextSibling;return e?t.parentNode.insertBefore(n,e):t.parentNode.appendChild(n)}t.exports=e}]);
+</script>
+<script src="/main.fbf6be.js"></script>
+<script>
+(function() {
+	var loadScript = function(path) {
+	    var $script = document.createElement('script')
+	    document.getElementsByTagName('body')[0].appendChild($script)
+	    $script.setAttribute('src', path)
+	}
+	loadScript("/slider.dad438.js")
+})();
+</script>
+
+
+
+
+    
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-nav header-menu">
+    
+    
+      
+      
+      
+    
+      
+    
+      
+      
+      
+    
+    
+
+    <ul style="width: 70%">
+    
+    
+      
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      
+        
+      
+        
+      
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      
+        
+    </ul>
+  </div>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color3">跨域</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color1">数据可视化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color2">vue3.0</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            2、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: true
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">程序媛一枚&lt;br&gt;&lt;br&gt;努力成为大神的路上&lt;br&gt;一起学习进步</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
