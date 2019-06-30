@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>译 - Vue3.0最新功能 | Friday</title>
+  <title>多 tab 页 sessionStorage 共享问题 | Friday</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近参加了 vueconf 会议，见到了尤大大关于 vue3.0 即将发布的最新功能，这里将会议视频内容整理成文章，待明年 vue3.0 发布时可对照源码学习下。  Vue3.0主要会带来哪些功能 更快 更小 更易于维护 更好的多端渲染支持 新功能  更快 vue3.0 将会对 virtual DOM 的实现进行完全重构，重构后的初始渲染、更新速度将会提升一倍。 更多编译时的优化以减少运行时的开">
-<meta name="keywords" content="vue3.0">
+  <meta name="description" content="sessionStorage 介绍说起 sessionStorage, 大家肯定都不陌生，浏览器的 sessionStorage 属性允许我们存储一些 key/value 的数据。与 localStorage 的不同之处，sessionStorage 里存储的数据在每次关闭浏览器之后就没有了，是会话级别的数据存储。而 localStorage 存储的数据是永久性的，在关闭浏览器之后也不会消失，下次">
+<meta name="keywords" content="sessionStorage">
 <meta property="og:type" content="article">
-<meta property="og:title" content="译 - Vue3.0最新功能">
-<meta property="og:url" content="http://yoursite.com/2018/12/02/vue3.0/index.html">
+<meta property="og:title" content="多 tab 页 sessionStorage 共享问题">
+<meta property="og:url" content="http://yoursite.com/2019/06/23/sessionStorage/index.html">
 <meta property="og:site_name" content="Friday">
-<meta property="og:description" content="最近参加了 vueconf 会议，见到了尤大大关于 vue3.0 即将发布的最新功能，这里将会议视频内容整理成文章，待明年 vue3.0 发布时可对照源码学习下。  Vue3.0主要会带来哪些功能 更快 更小 更易于维护 更好的多端渲染支持 新功能  更快 vue3.0 将会对 virtual DOM 的实现进行完全重构，重构后的初始渲染、更新速度将会提升一倍。 更多编译时的优化以减少运行时的开">
+<meta property="og:description" content="sessionStorage 介绍说起 sessionStorage, 大家肯定都不陌生，浏览器的 sessionStorage 属性允许我们存储一些 key/value 的数据。与 localStorage 的不同之处，sessionStorage 里存储的数据在每次关闭浏览器之后就没有了，是会话级别的数据存储。而 localStorage 存储的数据是永久性的，在关闭浏览器之后也不会消失，下次">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-22T08:30:29.540Z">
+<meta property="og:updated_time" content="2019-06-30T14:35:58.489Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="译 - Vue3.0最新功能">
-<meta name="twitter:description" content="最近参加了 vueconf 会议，见到了尤大大关于 vue3.0 即将发布的最新功能，这里将会议视频内容整理成文章，待明年 vue3.0 发布时可对照源码学习下。  Vue3.0主要会带来哪些功能 更快 更小 更易于维护 更好的多端渲染支持 新功能  更快 vue3.0 将会对 virtual DOM 的实现进行完全重构，重构后的初始渲染、更新速度将会提升一倍。 更多编译时的优化以减少运行时的开">
+<meta name="twitter:title" content="多 tab 页 sessionStorage 共享问题">
+<meta name="twitter:description" content="sessionStorage 介绍说起 sessionStorage, 大家肯定都不陌生，浏览器的 sessionStorage 属性允许我们存储一些 key/value 的数据。与 localStorage 的不同之处，sessionStorage 里存储的数据在每次关闭浏览器之后就没有了，是会话级别的数据存储。而 localStorage 存储的数据是永久性的，在关闭浏览器之后也不会消失，下次">
   
     <link rel="alternative" href="/atom.xml" title="Friday" type="application/atom+xml">
   
@@ -169,96 +169,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vue3.0" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-sessionStorage" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      译 - Vue3.0最新功能
+      多 tab 页 sessionStorage 共享问题
     </h1>
   
 
         
-        <a href="/2018/12/02/vue3.0/" class="archive-article-date">
-  	<time datetime="2018-12-02T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-02</time>
+        <a href="/2019/06/23/sessionStorage/" class="archive-article-date">
+  	<time datetime="2019-06-23T13:17:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>最近参加了 vueconf 会议，见到了尤大大关于 vue3.0 即将发布的最新功能，这里将会议视频内容整理成文章，待明年 vue3.0 发布时可对照源码学习下。</p>
-</blockquote>
-<h2 id="Vue3-0主要会带来哪些功能"><a href="#Vue3-0主要会带来哪些功能" class="headerlink" title="Vue3.0主要会带来哪些功能"></a>Vue3.0主要会带来哪些功能</h2><ul>
-<li>更快</li>
-<li>更小</li>
-<li>更易于维护</li>
-<li>更好的多端渲染支持</li>
-<li>新功能</li>
-</ul>
-<h3 id="更快"><a href="#更快" class="headerlink" title="更快"></a>更快</h3><ul>
-<li>vue3.0 将会对 virtual DOM 的实现进行完全重构，重构后的初始渲染、更新速度将会提升一倍。</li>
-<li><p>更多编译时的优化以减少运行时的开销。如下几个编译时优化：</p>
-<ul>
-<li><p>在 vue2.0 中对 template 里的代码直接编译成字符串，对于组件也是用字符串表示，然后在运行的时候再去判断到底是原生的 DOM，还是我们写的组件。在 vue3.0 中，将会在编译阶段就直接判断，如果是组件，直接生成组件代码对应的原生 virtual DOM。如下所示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// Template</span><br><span class="line">&lt;Comp&gt;&lt;/Comp&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;span&gt;&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">// Compiler output</span><br><span class="line"><span class="function"><span class="title">render</span></span>() &#123;</span><br><span class="line">    const Comp = resolveComponent(<span class="string">'Comp'</span>, this)</span><br><span class="line">    <span class="built_in">return</span> createFragment([</span><br><span class="line">        createComponentVNode(Comp, null, null, 0 /* no children */),</span><br><span class="line">        createElementVNode(<span class="string">'div'</span>, null, [</span><br><span class="line">            createElementVNode(<span class="string">'span'</span>, null, null, 0 /* no children */)</span><br><span class="line">        ], 2 /* single vnode child */)</span><br><span class="line">    ], 8 /* multiple non-keyed children */)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>并且在编译成 VNode 时，会记录一些信息跳过不需要的条件判断，如上面 div 下面只有一个子元素，在编译成 VNode 时，用2标记了只有一个子节点。并且在生成 virtual DOM 时函数调用尽可能的形状一致，如上面调用 createElementVNode 的时候函数参数个数是一样的，这样可以生成更易于被 JS 引擎优化的代码。</p>
-</li>
-<li><p>优化 slots 生成。如下所示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// Template</span><br><span class="line">&lt;Comp&gt;</span><br><span class="line">    &lt;div&gt;&#123;&#123; hello &#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;/Comp&gt;</span><br></pre></td></tr></table></figure>
-<p>在 vue2.0 中，hello 做为一个动态的 hello 传递到了子组件里，当我们要更新hello这个内容时，我们需要先更新父组件，父组件更新生成新的 slots 内容传递到子组件，然后子组件再更新。这样为了更新 hello 这个内容，同时触发了两个组件的更新。在 vue3.0 中把所有的 slot 统一成为一个函数传递到子组件中，由子组件自己来决定什么时候调用这函数，如下 vue3.0 中 slots 编译后的代码：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// Compiler output</span><br><span class="line"><span class="function"><span class="title">render</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> h(Comp, null, &#123;</span><br><span class="line">        default: () =&gt; [h(<span class="string">'div'</span>, this.hello)]</span><br><span class="line">    &#125;, 16 /* compiler generated slots */)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样 hello 的更新只会触发子组件的更新，确保精确的组件级别依赖收集，避免不需要的父子关联更新。</p>
-</li>
-<li><p>静态属性的提取。在 vue2.0 中做了静态内容的提取，对于完全静态的内容，直接提取出来，在之后可以直接复用这块 virtual DOM，并且比对过程中可以直接跳过整块这个内容。但是在 vue2.0 中，只要 html 中有一部分时动态的，那么它就不能被完全的静态化。如下 div 中包含一个动态的 text。 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"foo"</span> class=<span class="string">"bar"</span>&gt;</span><br><span class="line">&#123;&#123; text &#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>在 vue3.0 中，如果这个元素本身的属性都是静态的，如上面 div 的 id、class，vue3.0 会将它的属性对象给提取出来，之后的比较中，这个元素本身就不需要比对了，只需要比对它的 children 即可。</p>
-</li>
-<li><p>内联事件函数提取。如下所示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Comp @event=<span class="string">"count++"</span>/&gt;</span><br></pre></td></tr></table></figure>
-<p>其中的 count++ 其实会生成一个内联函数，每次渲染的时候都会生成一个新的内联函数，这个函数跟之前的函数是不一样的两个函数，虽然两个函数做的事情都是一样的，但是为了安全起见，每次都会重新渲染这个子组件每次都重新渲染。在 vue3.0 中，在这个函数生成一遍之后，就将它 cache 起来，之后的每次都用这同一个函数，避免子组件的再次重新更新，如下编译后的代码所示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import &#123; getBoundMethod &#125; from <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">__fn1</span></span> () &#123;</span><br><span class="line">    this.count++</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">render</span></span>() &#123;</span><br><span class="line">    <span class="built_in">return</span> h(Comp, &#123;</span><br><span class="line">        onEvent: getBoundMethod(__fn1, this)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>基于 Proxy 的新数据监听系统，全语言特性支持 + 更好的性能。vue3.0 中将放弃 Object.defineProperty，使用 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy" target="_blank" rel="noopener">Proxy</a> 的全新数据监听，我们知道 Object.defineProperty 对于对象属性的添加，数组的 push 等操作都是监听不到的，Proxy可以监听到对象属性增添/删除，数组 index/length 更改等。利用 Proxy 可以减少组件实例初始化开销。但是 Proxy 仅支持 IE Edge。</p>
-<p>  通过上面这些优化，vue3.0 组件实例初始化可加快达一倍，并且占用内存减半。</p>
-</li>
-</ul>
-<h3 id="更小"><a href="#更小" class="headerlink" title="更小"></a>更小</h3><p>在 vue2.0 中，所有的代码都在一个 vue 全局对象上，那些你代码中没有用到东西也没有办法扔掉。在 vue3.0 做了按需引入，只有你代码用到了哪些功能，才会去 import 相关的代码，再结合 Tree shaking 将那些没有用到的代码扔掉。这样 vue3.0 中最小核心运行时的代码大约只需要10kb gzipped。</p>
-<h3 id="更易于维护"><a href="#更易于维护" class="headerlink" title="更易于维护"></a>更易于维护</h3><p>vue3.0 将使用 typescript 重写，并且使用了 monorepo 进行内部模块解耦。</p>
-<h3 id="更好的多端渲染支持"><a href="#更好的多端渲染支持" class="headerlink" title="更好的多端渲染支持"></a>更好的多端渲染支持</h3><p>   vue3.0 中提取出了一个核心的 @vue/runtime-core 包，可以使用这个核心包进行开发可运行在小程序中等其他环境中。以往 vue2.0 中如果要开发一个可运行在小程序其他端中的化，可能需要 fork 一份 vue 源码然后进行改写，这样的话后续 vue 的升级可能需要解决冲突，或者看 vue 的更新源码，这样就非常的不方便。</p>
-<h3 id="新功能"><a href="#新功能" class="headerlink" title="新功能"></a>新功能</h3><ul>
-<li><p>响应式数据监听 API。vue3.0 中开放出了一个 observable API，可实现一些响应式数据监听。如下所示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123; observable, effect &#125; from <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line">const state = observable(&#123;</span><br><span class="line">    count: 0</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">effect(() =&gt; &#123;</span><br><span class="line">    console.log(`count is: <span class="variable">$&#123;state.count&#125;</span>`)</span><br><span class="line">&#125;) // count is: 0</span><br><span class="line"></span><br><span class="line">state.count++ // count is: 1</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>轻松排查组件更新的触发原因。vue3.0 中提供了一个钩子函数，renderTriggered 在这个钩子函数中可以看到具体是什么触发了组件的更新。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    const Comp = &#123;</span><br><span class="line">        render(props) &#123;</span><br><span class="line">            <span class="built_in">return</span> h(<span class="string">'div'</span>, props.count)</span><br><span class="line">        &#125;,</span><br><span class="line">        renderTriggered(event) &#123;</span><br><span class="line">            debugger</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更好的 TypeScript 支持，包括原生的 Class API 和 TSX。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">interface HelloProps &#123;</span><br><span class="line">    text: string</span><br><span class="line">&#125;</span><br><span class="line">class Hello extends Component&lt;HelloProps&gt; &#123;</span><br><span class="line">    count = 0</span><br><span class="line">    <span class="function"><span class="title">render</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> &lt;div&gt;</span><br><span class="line">        &#123;this.count&#125;</span><br><span class="line">        &#123;this.<span class="variable">$props</span>.text&#125;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更好的警告信息。</p>
-<ul>
-<li>组件堆栈包含函数式组件</li>
-<li>可以直接在警告信息中查看组件的 props</li>
-<li>在更多的警告中提供组件堆栈信息</li>
-</ul>
-</li>
-<li><p>Hooks API。</p>
-<p>  即 React Hooks 的提出，vue3.0 中也将提供 Hooks API 作为一种逻辑复用机制，大概率取代 mixins。</p>
-</li>
-<li><p>Time Slicing Support。</p>
-<p>  React17 中也提出 time slicing: <a href="https://blog.pusher.com/time-slice-suspense-api-react-17/" target="_blank" rel="noopener">https://blog.pusher.com/time-slice-suspense-api-react-17/</a>，让框架在进行大量 JS 计算的时候，把 JS 计算切成一帧一帧的计算，不要让大量的 js 计算 block 了浏览器的主线程，浏览器在 block 时会处于一个完全没有响应的状态，用户的输入点击等都是无法被响应的，如果用户的输入导致了大量的 JS 计算，同时用户继续输入的话，会明显的一个输入卡顿性能下降的情况。要改进这个问题，可以通过每 16ms 处理完之后交还给浏览器，让用户的事件重新进来，触发更新，中间可能还可以因用户的输入导致新的更新，之前不必要的处理就不需要执行了，这样就不会造成一个卡顿的现象。</p>
-</li>
-</ul>
-<h3 id="关于IE。"><a href="#关于IE。" class="headerlink" title="关于IE。"></a>关于IE。</h3><p>前面提到了使用新的proxy数据监听是不支持IE11及以下的，那么在 IE11 中自动降级为旧的 getter/setter 机制，并对 IE 中不支持的用法给出警告，并且 IE11 中享受不了部分新的功能了。看来是时候放弃兼容 IE 了，感觉很好，回想兼容 IE8 是的可怕时光。。。</p>
-<blockquote>
-<p>我不是知识的创造者，我只是知识的搬运工。</p>
-</blockquote>
+        <h3 id="sessionStorage-介绍"><a href="#sessionStorage-介绍" class="headerlink" title="sessionStorage 介绍"></a>sessionStorage 介绍</h3><p>说起 sessionStorage, 大家肯定都不陌生，浏览器的 sessionStorage 属性允许我们存储一些 key/value 的数据。与 localStorage 的不同之处，sessionStorage 里存储的数据在每次关闭浏览器之后就没有了，是会话级别的数据存储。而 localStorage 存储的数据是永久性的，在关闭浏览器之后也不会消失，下次再打开浏览器时，数据依赖存在，除非你手动的进行删除。</p>
+<p>sessionStorage 的 api 也是非常的简单。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 存储数据</span><br><span class="line">sessionStorage.setItem(<span class="string">'name'</span>, <span class="string">'jch'</span>);</span><br><span class="line">// 获取数据</span><br><span class="line">sessionStorage.getItem(<span class="string">'name'</span>); // <span class="string">'jch'</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>看似很简单实用的一个属性，却也在打开多个 tab 页面时引起了问题。</p>
+<p>问题出现场景：</p>
+<p>在一个后端任务管理系统中，菜单里有很多任务相关的页面，这些任务都与服务器有关。很多类似这样的系统下系统顶部 topmenu 都有一个 切换服务器的功能，每次点击切换服务器之后，当前页面的数据都需要刷新，即重新的请求后端数据，并且希望页面刷新。后端这个时候希望这个 <code>服务器</code> 的信息是前端写在 cookie 中，这里暂不说其他方式。</p>
+<p>这是需求的一个描述，简化一下就是：点击切换服务器 topmenu 的时候，写 cookie，并且刷新浏览器. 在不关闭浏览器的情况下刷新浏览器都是刚刚选择的服务器。既然需要刷新浏览器记住数据，自然而然我想到了写 sessionStorage. 做法是：</p>
+<p>点击切换服务器时，写 sessionStorage 记住当前选择的服务器并重新刷新浏览器，在进入系统 App 根路由时读取 sessionStorage 判断是否有记录服务器的值，若没有的话 topmenu 默认选择列表的第一个并写 cookie，这样后面请求都会带上这个 cookie 了。若有的话，根据该 sessionStorage 写 cookie 并且 topmenu 的 selected 值就是 sessionStorage 里的值。这样看起来没有啥问题，妥妥的完成了需求。然而 bug 无所不在，当你在一个 tab 页面里面切换了服务器之后，系统里面一个 a 标签新开一个 tab 页面查看某个任务详情的时候，新开的 tab 页面里面默认最开始是选择第一个服务器，因为两个 tab 页面的 sessionStorage 是不共享的。这样在打开的新 tab 页面的时候，默认选择了第一个服务器，并且写下了 cookie 值为第一个服务器，这样奇怪的问题就会出现了，再次回到第一个 tab 的时候，点击其他页面请求的数据都是第二个 tab 选择的服务器值，而第一个 tab 的 topmenu 显示的还是刚刚选择过的服务器，这样就不对了。产生这个问题的原因是不同页面的 sessionStorage 是不共享的，而 cookie 是共享的，cookie 是针对域名下的。我们在打开新 tab 的时候，因为该 tab 下 sessionStorage 没有记录服务器的值，我们默认选择了第一个服务器，并且写了 cookie, 这样就导致 cookie 值被更新了，回到第一个页面的时候再次请求 cookie 就是不对了。</p>
+<p>看到这个问题之后，才了解到 sessionStorage 和 localStorage 其实还有一个更大的不同点，在不同 tab 下 sessionStorage 是不共享的，而 localStorage 是共享的。既然 localStorage 是共享的，那么就可以解决上面我们新开页面因 sessionStorage 不共享导致写 cookie 错乱的问题了。</p>
+<h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><p>知道问题的源头在哪里，解决起来就很简单了，只要把上面记录服务器的信息写在 localStorage 中就可以了，这样新开 tab 页的时候，在根路由 App 里面判断 localStorage 的时候就已经有值了，并且是第一个 tab 是一样的，这样写的 cookie 也是一样的。解决了这个之后，还有一个问题是 开了两个 tab 情况时，在不同的 tab 里面切换服务器的时候，也会导致一个 cookie 错乱的问题。其实后端想放在 cookie 里面记录这个服务器的值，就是希望这个服务器的信息和用户登录一样的，不管开多少个页面，大家都是保持一样的一个情况。这样就需要多 tab 页里面更改 localStorage 的时候需要互相通知到。嗯，强大的浏览器已经有这样的 API 供我们使用了，我们可以在 APP 根路由处监听 storage 的变化，如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(<span class="string">'storage'</span>, event =&gt; &#123;</span><br><span class="line">    // servername 为 localStorage 的 key</span><br><span class="line">  <span class="keyword">if</span> (event.key === <span class="string">'servername'</span>) &#123;</span><br><span class="line">    this.data.serverName = event.newValue; // newValue 即为新设置的 localStorage 的值，更新 topmenu 为 localStorage 里的值，保持多 tab 页一致。</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>这样问题就彻底解决了。通过 localStorage 及监听 storage 事件，我们也可以用一个 localStorage 实现多 tab 页共享 sessionStorage, 通过上面分析，想来大家都知道怎么做了，那就动手去实现下吧！</p>
 
       
 
@@ -320,7 +260,7 @@
 		<ul class="article-tag-list">
 			 
         <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color2">vue3.0</a>
+        	<a href="javascript:void(0)" class="article-tag-list-link color5">sessionStorage</a>
         </li>
       
 		</ul>
@@ -339,18 +279,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/12/27/datavisual/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          常用的数据可视化框架
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/01/02/cors/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JS的跨域理解</div>
+    <a href="/2019/03/17/react event/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">记一次 react 事件踩坑</div>
       <i class="icon-circle-right"></i>
     </a>
   
